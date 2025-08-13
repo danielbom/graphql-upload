@@ -1,0 +1,21 @@
+POST http://localhost:3000/graphql
+x-apollo-operation-name: singleUpload
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="operations"
+
+{"query":"mutation ($file: Upload!) { singleUpload(file: $file) { filename mimetype encoding } }","variables":{"file":null}}
+
+--boundary
+Content-Disposition: form-data; name="map"
+
+{"0":["variables.file"]}
+
+--boundary
+Content-Disposition: form-data; name="0"; filename="../samples/react.png"
+Content-Type: image/png
+
+< ../samples/react.png
+--boundary--
+

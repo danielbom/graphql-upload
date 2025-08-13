@@ -1,0 +1,28 @@
+POST http://localhost:3000/graphql
+x-apollo-operation-name: multipleUpload
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="operations"
+
+{"query":"mutation ($files: [Upload!]!) { multipleUpload(files: $files) { filename mimetype encoding } }","variables":{"files":[null,null]}}
+
+--boundary
+Content-Disposition: form-data; name="map"
+
+{"0":["variables.files.0"], "1":["variables.files.1"]}
+
+# OBS:  Using httpyac on vscode I should provide sql.png first, or both images are not processed
+#       This seems related to the side of the file.
+--boundary
+Content-Disposition: form-data; name="0"; filename="../samples/sql.png"
+Content-Type: image/png
+
+< ../samples/sql.png
+--boundary
+Content-Disposition: form-data; name="1"; filename="../samples/postgres.png"
+Content-Type: image/png
+
+< ../samples/postgres.png
+--boundary--
+

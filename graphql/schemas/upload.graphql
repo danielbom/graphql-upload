@@ -1,0 +1,26 @@
+scalar Upload
+
+type File {
+  filename: String!
+  mimetype: String!
+  encoding: String!
+}
+
+type Mutation {
+  """
+  Upload a single file
+  """
+  singleUpload(file: Upload!): File!
+  
+  """
+  Upload multiple files
+  """
+  multipleUpload(files: [Upload!]!): [File!]!
+}
+
+type Query {
+  """
+  List all uploaded files
+  """
+  uploads: [String!]!
+}

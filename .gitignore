@@ -1,0 +1,4 @@
+node_modules/
+graphql/graphql.schema.json
+graphql/types.ts
+uploads/

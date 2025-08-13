@@ -1,0 +1,22 @@
+# package.json -> scripts -> graphql:codegen
+overwrite: true
+schema: "graphql/**/*.graphql"
+generates:
+  graphql/types.ts:
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+      - "typescript-document-nodes"
+    config:
+      useTypeImports: true
+      makeResolverTypeCallable: true
+      skipTypename: true
+      avoidOptionals:
+        field: false
+        inputValue: false
+        object: false
+        defaultValue: false
+
+  graphql/graphql.schema.json:
+    plugins:
+      - "introspection"

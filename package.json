@@ -1,0 +1,45 @@
+{
+  "name": "graphql-upload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "tsx index.js",
+    "dev": "tsx watch index.js",
+    "graphql:codegen": "graphql-codegen --config graphql/codegen.yml"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^5.0.0",
+    "@as-integrations/express5": "^1.1.2",
+    "@graphql-tools/graphql-file-loader": "^8.0.22",
+    "@graphql-tools/load": "^8.1.2",
+    "@graphql-tools/schema": "^10.0.25",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "graphql": "^16.11.0",
+    "graphql-tag": "^2.12.6",
+    "graphql-upload": "^17.0.0",
+    "make-dir": "^5.0.0",
+    "morgan": "^1.10.1",
+    "shortid": "^2.2.17"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.7",
+    "@graphql-codegen/introspection": "^4.0.3",
+    "@graphql-codegen/typescript": "^4.1.6",
+    "@graphql-codegen/typescript-document-nodes": "^4.0.16",
+    "@graphql-codegen/typescript-resolvers": "^4.5.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/graphql-upload": "^17.0.0",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^24.2.1",
+    "@types/shortid": "^2.2.0",
+    "tsx": "^4.20.4",
+    "typescript": "^5.9.2"
+  }
+}
