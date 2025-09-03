@@ -1,9 +1,11 @@
+import GraphQLJSON, { GraphQLJSONObject } from 'graphql-type-json'
+
 import { readdir } from 'node:fs/promises'
 import UPLOAD_DIRECTORY_URL from './config/UPLOAD_DIRECTORY_URL'
 import storeUpload, { type FileArgs } from './lib/storeUpload'
 import type { Resolvers } from './types'
 
-const resolvers: Resolvers = {
+const uploadResolvers: Resolvers = {
   Mutation: {
     singleUpload: async (parent, { file }, context) => {
       return storeUpload(await file)
@@ -31,5 +33,13 @@ const resolvers: Resolvers = {
     uploads: () => readdir(UPLOAD_DIRECTORY_URL),
   },
 }
+
+const resolvers: Resolvers[] = [
+  uploadResolvers,
+  {
+    JSON: GraphQLJSON,
+    JSONObject: GraphQLJSONObject,
+  },
+]
 
 export default resolvers
