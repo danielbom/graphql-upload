@@ -15,8 +15,7 @@ export interface FileArgs {
  * Stores a GraphQL file upload in the filesystem.
  * @returns Resolves the stored file name.
  */
-export default async function storeUpload(uploadPromise: Promise<{ file: FileUpload }>): Promise<FileArgs> {
-  const upload = await uploadPromise
+export default async function storeUpload(upload: { file: FileUpload }): Promise<FileArgs> {
   const { createReadStream, filename, mimetype, encoding } = upload.file
   const stream = createReadStream()
   const storedFileName = `${shortId.generate()}-${filename}`
